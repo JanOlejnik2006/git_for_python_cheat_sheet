@@ -1,141 +1,153 @@
-I SETUP SRODOWISKA 
+Markdown
+# I. SETUP ŚRODOWISKA
 
-1 przygotowanie srodowiska
+## 1. Przygotowanie środowiska
+- Utwórz konto na GitHubie na maila uczelni: [GitHub](https://github.com/)
+- Pobierz i zainstaluj następujące narzędzia:
+  - **MS Visual Studio Code:** [https://code.visualstudio.com/](https://code.visualstudio.com/)
+  - W VS Code zaloguj się przez konto GitHub.
+  - W zakładce Extensions wyszukaj i zainstaluj pakiet **Python** od MS (w który wchodzi Pylance, Python Environments i Python Debugger).
+  - **Git:** [https://git-scm.com/](https://git-scm.com/)
+  - **GitHub CLI (`gh`):**
+    - Dla Mac wpisz w terminalu:
+      ```bash
+      /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
+      brew install gh
+      ```
+    - Dla Windows wpisz w cmd:
+      ```bash
+      winget install --id GitHub.cli
+      ```
 
-- utworz konto na githubie na maila uczelni
-https://github.com/
-
-- pobierz nastepujace:
-
-- MS Visual Studio Code:
-https://code.visualstudio.com/
-
-- W VSC zaloguj sie przez konto githuba
-
-- W extensions wyszukaj i zainstaluj pakiet Python od MS w ktory wchodzi Pylance, Python Enviroments i Python Debugger
-
-- Git:
-https://git-scm.com/
-
-- GitHub CLI:
-- Dla Mac wpisz w terminalu
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install gh
-
-- Dla Windows wpisz w cmd
-winget install --id GitHub.cli
-
-
-2 konfiguracja gita (cmd lub terminal)
-
+## 2. Konfiguracja Gita (cmd lub terminal)
+```bash
 git config --global user.name "Twoje Imię"
 git config --global user.email "twoj@email.com"
 
 gh auth login
-- wyklikaj w terminalu/cmd zeby sie zalogowac przez przegladarke
+Wyklikaj w terminalu/cmd, żeby się zalogować przez przeglądarkę.
 
-3 tworzenie projektu, stawienie srodowiska i laczenie go z gitem i githubem 
+3. Tworzenie projektu, stawienie środowiska i łączenie go z gitem i GitHubem
+Utwórz folder projektu w wybranej przez siebie lokalizacji.
 
-- utworz folder projektu w wybranej przez siebie lokalizacji
-- otworz folder projektu w vsc
-- otworz terminal w vsc (lewo gora 4 od gory ikonka i tam jest)
+Otwórz folder projektu w VS Code.
 
-- wpisz w terminalu VS Code:
+Otwórz terminal w VS Code (lewa góra, 4 ikonka od góry lub skrót Ctrl + `` ).
 
-- Dla Windows: 
+Wpisz w terminalu VS Code:
+
+Dla Windows:
+
+Bash
 python -m venv .venv
+Dla Mac / Linux:
 
-- Dla Mac / Linux: 
+Bash
 python3 -m venv .venv
+Utwórz w folderze projektu plik o nazwie .gitignore i wpisz do niego:
 
-- utworz w folderze projektu plik o nazwie .gitignore i wpisz do niego:
+Plaintext
 .venv/
 __pycache__/
+Utwórz repozytorium na gicie i GitHubie za pomocą terminala w VS Code:
 
-- utworz repozytorium na gicie i githubie za pomoca terminala w vsc
+Bash
 git init
 git branch -M main
 gh repo create nazwa-repozytorium --public --source=. --remote=origin --push
+Wejdź na GitHub w przeglądarkce na repo, które właśnie stworzyłeś.
 
-- wejdz na githuba na przegladarce w repo ktore wlasie stworzyles 
-- w ustawienia, w collaborators i dodaj druga osobe
+Wjdź w Settings -> Collaborators i dodaj drugą osobę.
 
-II praca na plikach
-1 najpierw zajmiemy sie stworzeniem tych plikow i folderow ktore byly w instrukcji zeby zrobic pierwszy commit i wrzucic juz cos na githuba
-- jak juz stworzymy pliki to dodajemy je w terminalu
-- git status pokazuje nam na jakim branchu jestesmy co jest w lokalnym repo i ktore pliki nie sa dodane(przyda sie mocno pozniej do sprawdzania na ktorym branchu jestes)
+II. Praca na plikach
+1. Pierwszy commit i wrzutka plików
+Jak już stworzymy pliki i foldery, dodajemy je w terminalu:
+
+git status – pokazuje nam, na jakim branchu jesteśmy, co jest w lokalnym repo i które pliki nie są dodane (przyda się mocno później do sprawdzania, na którym branchu jesteś):
+
+Bash
 git status
+git add – dodaje pliki (jeśli damy po nim ., dodaje wszystko w folderze, w którym jesteśmy):
 
-- git add dodaje, jak dodany po nim . lub -A to dodaje wszystko w folderze w ktorym jestsmy
+Bash
 git add .
+git commit – tworzy nowego commita (wersję) w lokalnym repo:
 
-- git commit tworzy nowego commita(wersje) w lokalnym repo
+Bash
 git commit -m "komentarz"
+git push – wrzuca zcommitowaną wersję na repo na GitHubie:
 
-- git push wrzuca zcommitowana wersje na repo na githubie
+Bash
 git push
+Sprawdź w przeglądarce, czy zmiany się pokazały.
 
-- sprawdz w przegladarce czy zmiany sie pokazaly
+2. Praca równoległa w dwie osoby (Branching & Pull Requests)
+Żebyście nie nadpisali sobie nawzajem kodu w tym samym pliku, pracujcie na osobnych gałęziach (branches).
 
-2 teraz zajmiemy sie juz praca na plikach w dwie osoby
-- Praca równoległa w dwie osoby (Branching & Pull Requests)
-- Żebyście nie nadpisali sobie nawzajem kodu w tym samym pliku, pracujcie na osobnych gałęziach (branches)
+Pobieramy aktualną wersję z repo z GitHuba:
 
-- pobieramy aktualna wersje z repo z githuba
+Bash
 git pull origin main
+Tworzymy własnego brancha (git checkout pozwala przełączać się między brachami, dopisek -b tworzy nowego brancha i przełącza od razu na niego):
 
-- tworzymy wlasnego brancha (git checkout pozwala przelaczac sie miedzy branchaim, dopisek -b tworzy nowego brancha i przelacza od razu na niego)
+Bash
 git checkout -b Nazwa-brancha
+Pozmieniaj pare rzeczy, możesz porobić zadania dalej czy coś – ważne, żeby coś się zmieniło.
 
-- pozmieniaj pare rzeczy mozesz porobic zadania dalej czy cos wazne zeby cos sie zmienilo
+Dodajemy zmiany do staging area i puszczamy commita:
 
-- dodajemy zmiany do staging area i puszczamy commita
+Bash
 git add .
 git commit -m "komentarz"
+Wrzucamy zmiany na GitHub na tym branchu:
 
-- wrzucamy zmiany na githuba na tym branchu
+Bash
 git push origin Nazwa-brancha
+Wejdź na GitHub w przeglądarce.
 
-- Wejdź na GitHub w przeglądarce.
-- Kliknij zielony przycisk "Compare & pull request", a następnie zatwierdź (Create pull request -> Merge pull request), żeby połączyć swój kod z głównym branchem main.
+Kliknij zielony przycisk "Compare & pull request", a następnie zatwierdź (Create pull request -> Merge pull request), żeby połączyć swój kod z głównym branchem main.
 
-- Po złączeniu kodu, wróć do głównego brancha i pobierz najnowszy stan:
+Po złączeniu kodu, wróć do głównego brancha i pobierz najnowszy stan:
+
+Bash
 git checkout main
 git pull origin main
+III. Co zrobić, gdy pojawi się konflikt (Conflict)?
+Jeśli przy git pull origin main lub git merge wyskoczy informacja o konflikcie, oznacza to, że Wy albo ktoś z pary edytowaliście tę samą linię w pliku.
 
+Otwórz ten plik w VS Code – zobaczycie znaczniki konfliktów (<<<<<<<, =======, >>>>>>>).
 
+Wybierzcie ręcznie, która wersja kodu ma zostać (usuwając niepotrzebne znaczniki), a następnie zróbcie normalnie:
 
-III Co zrobić, gdy pojawi się konflikt (Conflict)?
-
-- Jeśli przy git pull origin main lub git merge wyskoczy informacja o konflikcie, oznacza to, że Wy albo ktoś z pary edytowaliście tę samą linię w pliku.
-
-- Otwórz ten plik w VS Code – zobaczycie znaczniki konfliktów (<<<<<<<, =======, >>>>>>>).
-
-- Wybierzcie ręcznie, która wersja kodu ma zostać (usuwając niepotrzebne znaczniki), a następnie zróbcie normalnie:
+Bash
 git add .
 git commit -m "fix: resolve merge conflict"
 git push
+IV. Co zrobić po ponownym włączeniu komputera (Codzienny start)?
+Otwórz folder projektu w VS Code.
 
-IV Co zrobić po ponownym włączeniu komputera (Codzienny start)?
+Otwórz terminal w VS Code.
 
-- Otwórz folder projektu w VS Code.
-- Otwórz terminal w VS Code.
-- Aktywuj wirtualne środowisko (.venv)
-- Dla Windows (CMD): 
+Aktywuj wirtualne środowisko (.venv):
+
+Dla Windows (PowerShell):
+
+Bash
+.venv\Scripts\Activate.ps1
+Dla Windows (CMD):
+
+Bash
 .venv\Scripts\activate.bat
+Dla Mac / Linux:
 
-- Dla Mac / Linux: 
+Bash
 source .venv/bin/activate
+Upewnij się, że po lewej stronie linii w terminalu pojawił się napis (.venv).
 
-- Upewnij się, że po lewej stronie linii w terminalu pojawił się napis (.venv).
+Pobierz najnowszy stan z GitHuba, upewniając się, że jesteś na głównym branchu:
 
-- Pobierz najnowszy stan z GitHuba, upewniając się, że jesteś na głównym branchu:
+Bash
 git checkout main
 git pull origin main
 
-- reszta dziala tak jak wczesniej 
-- chechout tworzymy brancha
-- add .  dodajemy pliki
-- commit commitujemy
-- push origin Nazwa-brancha pushujemy brancha
-- w przegladarce mergujemy
+
