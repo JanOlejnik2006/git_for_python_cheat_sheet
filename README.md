@@ -1,38 +1,42 @@
-Markdown
 # I. SETUP ŚRODOWISKA
 
 ## 1. Przygotowanie środowiska
-- Utwórz konto na GitHubie na maila uczelni: [GitHub](https://github.com/)
-- Pobierz i zainstaluj następujące narzędzia:
-  - **MS Visual Studio Code:** [https://code.visualstudio.com/](https://code.visualstudio.com/)
-  - W VS Code zaloguj się przez konto GitHub.
-  - W zakładce Extensions wyszukaj i zainstaluj pakiet **Python** od MS (w który wchodzi Pylance, Python Environments i Python Debugger).
-  - **Git:** [https://git-scm.com/](https://git-scm.com/)
-  - **GitHub CLI (`gh`):**
-    - Dla Mac wpisz w terminalu:
-      ```bash
-      /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
-      brew install gh
-      ```
-    - Dla Windows wpisz w cmd:
-      ```bash
-      winget install --id GitHub.cli
-      ```
+
+* Utwórz konto na GitHubie na maila uczelni: https://github.com/
+* Pobierz i zainstaluj następujące narzędzia:
+  * MS Visual Studio Code: https://code.visualstudio.com/
+  * W VSC zaloguj się przez konto GitHub.
+  * W extensions wyszukaj i zainstaluj pakiet Python od MS, w który wchodzi Pylance, Python Environments i Python Debugger.
+  * Git: https://git-scm.com/
+* GitHub CLI:
+  * Dla Mac wpisz w terminalu:
+    ```bash
+    /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
+    brew install gh
+    ```
+  * Dla Windows wpisz w cmd:
+    ```bash
+    winget install --id GitHub.cli
+    ```
 
 ## 2. Konfiguracja Gita (cmd lub terminal)
-```bash
-git config --global user.name "Twoje Imię"
-git config --global user.email "twoj@email.com"
 
+* Skonfiguruj swoje dane, wpisując:
+  ```bash
+  git config --global user.name "Twoje Imię"
+  git config --global user.email "twoj@email.com"
+Zaloguj się na GitHuba:
+
+Bash
 gh auth login
 Wyklikaj w terminalu/cmd, żeby się zalogować przez przeglądarkę.
 
-3. Tworzenie projektu, stawienie środowiska i łączenie go z gitem i GitHubem
+3. Tworzenie projektu, stawianie środowiska i łączenie go z gitem i githubem
 Utwórz folder projektu w wybranej przez siebie lokalizacji.
 
-Otwórz folder projektu w VS Code.
+Otwórz folder projektu w VSC.
 
-Otwórz terminal w VS Code (lewa góra, 4 ikonka od góry lub skrót Ctrl + `` ).
+Otwórz terminal w VSC (lewy górny róg, 4 od góry ikonka).
 
 Wpisz w terminalu VS Code:
 
@@ -49,33 +53,33 @@ Utwórz w folderze projektu plik o nazwie .gitignore i wpisz do niego:
 Plaintext
 .venv/
 __pycache__/
-Utwórz repozytorium na gicie i GitHubie za pomocą terminala w VS Code:
+Utwórz repozytorium na gicie i GitHubie za pomocą terminala w VSC:
 
 Bash
 git init
 git branch -M main
 gh repo create nazwa-repozytorium --public --source=. --remote=origin --push
-Wejdź na GitHub w przeglądarkce na repo, które właśnie stworzyłeś.
+Wejdź na GitHuba w przeglądarce w repo, które właśnie stworzyłeś.
 
-Wjdź w Settings -> Collaborators i dodaj drugą osobę.
+W ustawieniach (Settings), w sekcji Collaborators, dodaj drugą osobę.
 
 II. Praca na plikach
-1. Pierwszy commit i wrzutka plików
-Jak już stworzymy pliki i foldery, dodajemy je w terminalu:
+1. Pierwszy commit i wrzutka
+Najpierw zajmiemy się stworzeniem plików i folderów z instrukcji, żeby zrobić pierwszy commit i wrzucić coś na GitHuba.
 
-git status – pokazuje nam, na jakim branchu jesteśmy, co jest w lokalnym repo i które pliki nie są dodane (przyda się mocno później do sprawdzania, na którym branchu jesteś):
+git status pokazuje nam, na jakim branchu jesteśmy, co jest w lokalnym repo i które pliki nie są dodane (przyda się mocno później do sprawdzania, na którym branchu jesteś):
 
 Bash
 git status
-git add – dodaje pliki (jeśli damy po nim ., dodaje wszystko w folderze, w którym jesteśmy):
+git add dodaje pliki (jak damy po nim ., dodaje wszystko w folderze, w którym jesteśmy):
 
 Bash
 git add .
-git commit – tworzy nowego commita (wersję) w lokalnym repo:
+git commit tworzy nowego commita (wersję) w lokalnym repo:
 
 Bash
 git commit -m "komentarz"
-git push – wrzuca zcommitowaną wersję na repo na GitHubie:
+git push wrzuca zcommitowaną wersję na repo na GitHubie:
 
 Bash
 git push
@@ -92,18 +96,18 @@ Tworzymy własnego brancha (git checkout pozwala przełączać się między brac
 
 Bash
 git checkout -b Nazwa-brancha
-Pozmieniaj pare rzeczy, możesz porobić zadania dalej czy coś – ważne, żeby coś się zmieniło.
+Pozmieniaj parę rzeczy, możesz porobić zadania dalej czy coś – ważne, żeby coś się zmieniło w kodzie.
 
 Dodajemy zmiany do staging area i puszczamy commita:
 
 Bash
 git add .
 git commit -m "komentarz"
-Wrzucamy zmiany na GitHub na tym branchu:
+Wrzucamy zmiany na GitHuba na tym branchu:
 
 Bash
 git push origin Nazwa-brancha
-Wejdź na GitHub w przeglądarce.
+Wejdź na GitHuba w przeglądarce.
 
 Kliknij zielony przycisk "Compare & pull request", a następnie zatwierdź (Create pull request -> Merge pull request), żeby połączyć swój kod z głównym branchem main.
 
@@ -149,5 +153,3 @@ Pobierz najnowszy stan z GitHuba, upewniając się, że jesteś na głównym bra
 Bash
 git checkout main
 git pull origin main
-
-
