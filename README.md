@@ -8,7 +8,8 @@ Instrukcja od zera do pracy w parze: setup środowiska, commity, branche, pull r
 2. [Praca na plikach](#ii-praca-na-plikach)
 3. [Konflikty (Conflict)](#iii-co-zrobić-gdy-pojawi-się-konflikt-conflict)
 4. [Codzienny start](#iv-co-zrobić-po-ponownym-włączeniu-komputera-codzienny-start)
-5. [Ściągi graficzne](#v-ściągi-graficzne)
+5. [Dołączanie do istniejącego projektu](#v-dołączanie-do-istniejącego-projektu-dla-drugiej-osoby)
+6. [Ściągi graficzne](#vi-ściągi-graficzne)
 
 ---
 
@@ -258,7 +259,91 @@ Jeśli przy `git pull origin main` lub `git merge` wyskoczy informacja o konflik
 
 ---
 
-# V. Ściągi graficzne
+# V. Dołączanie do istniejącego projektu (dla drugiej osoby)
+
+Ta sekcja jest dla osoby, która **nie zakłada** repo, tylko dołącza do projektu kolegi/koleżanki. Pomijasz tworzenie repo (`git init`, `gh repo create`) – zamiast tego **klonujesz** gotowe.
+
+## 1. Jednorazowy setup
+
+1. Zrób punkt **I.1** i **I.2** (konto GitHub, VS Code, Python, Git, GitHub CLI, `git config`, `gh auth login`).
+2. Zaakceptuj zaproszenie do repo – przyjdzie mailem albo zobaczysz je w powiadomieniach na GitHubie. Bez tego nie wrzucisz zmian.
+
+## 2. Pobranie projektu
+
+1. Wejdź na stronę repo na GitHubie → zielony przycisk **Code** → skopiuj link HTTPS.
+2. Otwórz terminal w miejscu, gdzie chcesz mieć projekt, i wpisz:
+
+   ```bash
+   git clone https://github.com/WLASCICIEL/nazwa-repozytorium.git
+   cd nazwa-repozytorium
+   ```
+
+   Albo skrócona wersja przez GitHub CLI:
+
+   ```bash
+   gh repo clone WLASCICIEL/nazwa-repozytorium
+   cd nazwa-repozytorium
+   ```
+
+3. Otwórz folder projektu w VS Code (`code .` albo *File → Open Folder*).
+
+## 3. Własne środowisko wirtualne
+
+Folder `.venv` **nie jest** w repo (jest w `.gitignore`), więc każdy tworzy swój:
+
+🪟 **Windows:**
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate.bat
+```
+
+🍎🐧 **Mac / Linux:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Potem:
+
+1. Upewnij się, że w terminalu widać `(.venv)`.
+2. Wybierz interpreter w VS Code: `Ctrl+Shift+P` (Mac: `Cmd+Shift+P`) → **Python: Select Interpreter** → ten z `.venv`.
+3. Jeśli w projekcie jest plik `requirements.txt`, doinstaluj biblioteki:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## 4. Praca na własnym branchu
+
+Nigdy nie pracuj bezpośrednio na `main`. Schemat jest taki sam jak w punkcie **II.2**:
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b Twoja-nazwa-brancha
+```
+
+Zmieniasz kod, a potem:
+
+```bash
+git add .
+git commit -m "komentarz"
+git push -u origin Twoja-nazwa-brancha
+```
+
+Na GitHubie: **Compare & pull request → Create pull request**. Merge robi osoba, która pilnuje `main` (albo Wy razem po sprawdzeniu zmian).
+
+## 5. Po zmergowaniu i codziennie
+
+- Wróć na `main` i pobierz zmiany: `git checkout main` → `git pull origin main`.
+- Codzienny start wygląda tak samo jak w punkcie **IV** (otwórz folder, aktywuj `.venv`, `git pull`).
+- Gdy wyskoczy konflikt, patrz punkt **III**.
+
+---
+
+# VI. Ściągi graficzne
 
 ## Komendy Gita
 
