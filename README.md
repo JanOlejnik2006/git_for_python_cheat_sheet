@@ -27,16 +27,16 @@ Instrukcja od zera do pracy w parze: setup środowiska, commity, branche, pull r
 
     🍎 **Mac** – wpisz w terminalu:
 
-    ```bash
+```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install gh
-    ```
+```
 
     🪟 **Windows** – wpisz w cmd:
 
-    ```bash
+```bash
     winget install --id GitHub.cli
-    ```
+```
 
     > Po instalacji zamknij i otwórz terminal na nowo, inaczej komenda `gh` może nie być widoczna.
 
@@ -68,46 +68,46 @@ gh auth login
 
    🪟 **Windows:**
 
-   ```bash
+```bash
    python -m venv .venv
-   ```
+```
 
    🍎🐧 **Mac / Linux:**
 
-   ```bash
+```bash
    python3 -m venv .venv
-   ```
+```
 
 5. Utwórz w folderze projektu plik o nazwie `.gitignore` i wpisz do niego:
 
-   ```text
+```text
    .venv/
    __pycache__/
-   ```
+```
 
 6. Wybierz interpreter: `Ctrl+Shift+P` (Mac: `Cmd+Shift+P`) → **Python: Select Interpreter** → wskaż ten z `.venv`.
 
 7. Utwórz lokalne repo i zrób pierwszy commit (bez commita następny krok się nie uda):
 
-   ```bash
+```bash
    git init
    git branch -M main
    git add .
    git commit -m "init"
-   ```
+```
 
 8. Utwórz repozytorium na GitHubie i wrzuć na nie kod:
 
-   ```bash
+```bash
    gh repo create nazwa-repozytorium --public --source=. --remote=origin --push
-   ```
+```
 
 9. Wejdź na GitHuba w przeglądarce w repo, które właśnie stworzyłeś.
 10. W ustawieniach (**Settings**), w sekcji **Collaborators**, dodaj drugą osobę. Druga osoba musi zaakceptować zaproszenie (mail albo zakładka *Notifications*) i sklonować repo:
 
-    ```bash
+```bash
     git clone https://github.com/WLASCICIEL/nazwa-repozytorium.git
-    ```
+```
 
     Potem w sklonowanym folderze tworzy własne `.venv` (krok 4).
 
@@ -203,21 +203,21 @@ Jeśli przy `git pull origin main` lub `git merge` wyskoczy informacja o konflik
 
 1. Otwórz ten plik w VS Code – zobaczycie znaczniki konfliktów:
 
-   ```text
+```text
    <<<<<<< HEAD
    Twoja wersja
    =======
    Wersja z drugiego brancha
    >>>>>>> nazwa-brancha
-   ```
+```
 
 2. Wybierzcie ręcznie, która wersja kodu ma zostać (usuwając niepotrzebne znaczniki), a następnie zróbcie normalnie:
 
-   ```bash
+```bash
    git add .
    git commit -m "fix: resolve merge conflict"
    git push
-   ```
+```
 
 > 💡 Najczęściej konflikt pojawia się na pull requeście, bo `main` poszedł do przodu. Wtedy na swoim branchu zrób `git pull origin main`, rozwiąż konflikt jak wyżej i zrób `git push`. PR odświeży się sam.
 
@@ -231,31 +231,31 @@ Jeśli przy `git pull origin main` lub `git merge` wyskoczy informacja o konflik
 
    🪟 **Windows (PowerShell):**
 
-   ```powershell
+```powershell
    .venv\Scripts\Activate.ps1
-   ```
+```
 
    > Jeśli PowerShell krzyczy o blokadzie skryptów, wpisz raz: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` albo użyj wersji CMD.
 
    🪟 **Windows (CMD):**
 
-   ```bat
+```bat
    .venv\Scripts\activate.bat
-   ```
+```
 
    🍎🐧 **Mac / Linux:**
 
-   ```bash
+```bash
    source .venv/bin/activate
-   ```
+```
 
 4. Upewnij się, że po lewej stronie linii w terminalu pojawił się napis `(.venv)`.
 5. Pobierz najnowszy stan z GitHuba, upewniając się, że jesteś na głównym branchu:
 
-   ```bash
+```bash
    git checkout main
    git pull origin main
-   ```
+```
 
 ---
 
@@ -273,17 +273,17 @@ Ta sekcja jest dla osoby, która **nie zakłada** repo, tylko dołącza do proje
 1. Wejdź na stronę repo na GitHubie → zielony przycisk **Code** → skopiuj link HTTPS.
 2. Otwórz terminal w miejscu, gdzie chcesz mieć projekt, i wpisz:
 
-   ```bash
+```bash
    git clone https://github.com/WLASCICIEL/nazwa-repozytorium.git
    cd nazwa-repozytorium
-   ```
+```
 
    Albo skrócona wersja przez GitHub CLI:
 
-   ```bash
+```bash
    gh repo clone WLASCICIEL/nazwa-repozytorium
    cd nazwa-repozytorium
-   ```
+```
 
 3. Otwórz folder projektu w VS Code (`code .` albo *File → Open Folder*).
 
@@ -311,9 +311,9 @@ Potem:
 2. Wybierz interpreter w VS Code: `Ctrl+Shift+P` (Mac: `Cmd+Shift+P`) → **Python: Select Interpreter** → ten z `.venv`.
 3. Jeśli w projekcie jest plik `requirements.txt`, doinstaluj biblioteki:
 
-   ```bash
+```bash
    pip install -r requirements.txt
-   ```
+```
 
 ## 4. Praca na własnym branchu
 
@@ -363,25 +363,12 @@ Na GitHubie: **Compare & pull request → Create pull request**. Merge robi osob
   <img src="terminal-cheat-sheet.avif" alt="Terminal cheat sheet – Mac / Linux" width="900">
 </p>
 
-## Windows CMD vs Mac / Linux – odpowiedniki komend
+## Windows CMD cheat sheet 🪟
 
-Ściąga powyżej to komendy **Maca / Linuxa** (terminal zsh/bash). W Windowsowym CMD działają inne, dlatego poniżej masz porównanie. Polecenia `git`, `gh` i `python` są takie same wszędzie, różnią się tylko podstawowe komendy systemowe:
+<p align="center">
+  <img src="windows-cmd-cheat-sheet-1.png" alt="Windows CMD cheat sheet – część 1" width="900">
+</p>
 
-| Co robi | 🪟 Windows (CMD) | 🍎🐧 Mac / Linux |
-|---|---|---|
-| Pokaż zawartość folderu | `dir` | `ls` (albo `ls -la` ze szczegółami) |
-| Wejdź do folderu | `cd folder` | `cd folder` |
-| Wyjdź folder wyżej | `cd ..` | `cd ..` |
-| Gdzie jestem | `cd` | `pwd` |
-| Utwórz folder | `mkdir folder` | `mkdir folder` |
-| Utwórz pusty plik | `type nul > plik.txt` | `touch plik.txt` |
-| Skopiuj plik | `copy a.txt b.txt` | `cp a.txt b.txt` |
-| Przenieś / zmień nazwę | `move a.txt b.txt` / `ren a.txt b.txt` | `mv a.txt b.txt` |
-| Usuń plik | `del plik.txt` | `rm plik.txt` |
-| Usuń folder z zawartością | `rmdir /s folder` | `rm -r folder` |
-| Wyświetl plik | `type plik.txt` | `cat plik.txt` |
-| Wyczyść terminal | `cls` | `clear` |
-| Python | `python` | `python3` |
-| Aktywacja `.venv` | `.venv\Scripts\activate.bat` | `source .venv/bin/activate` |
-
-> ⚠️ Na Macu `rm` usuwa **na stałe** (nie ma kosza), więc uważaj, zwłaszcza z `rm -r`.
+<p align="center">
+  <img src="windows-cmd-cheat-sheet-2.png" alt="Windows CMD cheat sheet – część 2" width="900">
+</p>
