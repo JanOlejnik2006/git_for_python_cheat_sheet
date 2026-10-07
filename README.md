@@ -357,8 +357,31 @@ Na GitHubie: **Compare & pull request → Create pull request**. Merge robi osob
   <img src="git-cheat-sheet.avif" alt="Git cheat sheet" width="900">
 </p>
 
-## Windows CMD cheat sheet
+## Terminal cheat sheet 🍎🐧 (Mac / Linux)
 
 <p align="center">
-  <img src="windows-cmd-cheat-sheet.avif" alt="Windows CMD cheat sheet" width="900">
+  <img src="terminal-cheat-sheet.avif" alt="Terminal cheat sheet – Mac / Linux" width="900">
 </p>
+
+## Windows CMD vs Mac / Linux – odpowiedniki komend
+
+Ściąga powyżej to komendy **Maca / Linuxa** (terminal zsh/bash). W Windowsowym CMD działają inne, dlatego poniżej masz porównanie. Polecenia `git`, `gh` i `python` są takie same wszędzie, różnią się tylko podstawowe komendy systemowe:
+
+| Co robi | 🪟 Windows (CMD) | 🍎🐧 Mac / Linux |
+|---|---|---|
+| Pokaż zawartość folderu | `dir` | `ls` (albo `ls -la` ze szczegółami) |
+| Wejdź do folderu | `cd folder` | `cd folder` |
+| Wyjdź folder wyżej | `cd ..` | `cd ..` |
+| Gdzie jestem | `cd` | `pwd` |
+| Utwórz folder | `mkdir folder` | `mkdir folder` |
+| Utwórz pusty plik | `type nul > plik.txt` | `touch plik.txt` |
+| Skopiuj plik | `copy a.txt b.txt` | `cp a.txt b.txt` |
+| Przenieś / zmień nazwę | `move a.txt b.txt` / `ren a.txt b.txt` | `mv a.txt b.txt` |
+| Usuń plik | `del plik.txt` | `rm plik.txt` |
+| Usuń folder z zawartością | `rmdir /s folder` | `rm -r folder` |
+| Wyświetl plik | `type plik.txt` | `cat plik.txt` |
+| Wyczyść terminal | `cls` | `clear` |
+| Python | `python` | `python3` |
+| Aktywacja `.venv` | `.venv\Scripts\activate.bat` | `source .venv/bin/activate` |
+
+> ⚠️ Na Macu `rm` usuwa **na stałe** (nie ma kosza), więc uważaj, zwłaszcza z `rm -r`.
