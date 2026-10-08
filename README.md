@@ -1,4 +1,5 @@
-# 🐍 Git + GitHub + Python – ściąga krok po kroku
+# 🐍 Git + GitHub + Python – ściąga krok po kroku 
+# WERSJA DLA VISUAL STUDIO CODE
 
 Instrukcja od zera do pracy w parze: setup środowiska, commity, branche, pull requesty i rozwiązywanie konfliktów.
 
