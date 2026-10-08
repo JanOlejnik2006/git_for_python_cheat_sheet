@@ -1,5 +1,8 @@
-# 🐍 Git + GitHub + Python – ściąga krok po kroku 
 # WERSJA DLA VISUAL STUDIO CODE
+
+> 🔗 Używasz PyCharma? Wersja z klikanym GUI Gita: [git_for_pycharm](https://github.com/JanOlejnik2006/git_for_pycharm)
+
+# 🐍 Git + GitHub + Python – ściąga krok po kroku
 
 Instrukcja od zera do pracy w parze: setup środowiska, commity, branche, pull requesty i rozwiązywanie konfliktów.
 
