@@ -1,4 +1,4 @@
-# 🐍 Git + GitHub + Python – ściąga krok po kroku
+# 🐍 Git + GitHub + Python – ściąga krok po kroku (wersja na MS VSC)
 
 Instrukcja od zera do pracy w parze: setup środowiska, commity, branche, pull requesty i rozwiązywanie konfliktów.
 
