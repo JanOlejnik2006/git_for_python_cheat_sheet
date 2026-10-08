@@ -1,4 +1,4 @@
-# 🐍 Git + GitHub + Python – ściąga krok po kroku (wersja na MS VSC)
+# 🐍 Git + GitHub + Python – ściąga krok po kroku
 
 Instrukcja od zera do pracy w parze: setup środowiska, commity, branche, pull requesty i rozwiązywanie konfliktów.
 
@@ -23,6 +23,23 @@ Instrukcja od zera do pracy w parze: setup środowiska, commity, branche, pull r
     - W VSC zaloguj się przez konto GitHub.
     - W *Extensions* wyszukaj i zainstaluj pakiet **Python** od MS (wchodzi w to Pylance, Python Environments i Python Debugger).
   - **Git:** https://git-scm.com/
+  - **Python (najnowsza stabilna wersja):** https://www.python.org/downloads/
+
+    > ⚠️ Nie polegaj na wersji Pythona, którą VS Code znajdzie w systemie albo podsunie sam, bo bywa za stara na nasze potrzeby. Zainstaluj świeżą wersję ze strony python.org.
+
+    🪟 **Windows:** uruchom instalator i na pierwszym ekranie **zaznacz "Add python.exe to PATH"**, potem *Install Now*.
+
+    🍎 **Mac:** pobierz instalator `.pkg` ze strony python.org i przejdź przez kreator (albo `brew install python`).
+
+    🐧 **Linux:** `sudo apt install python3 python3-venv` (jeśli wersja z repozytorium jest za stara, użyj wersji z python.org).
+
+    Po instalacji **zamknij VS Code i terminal i otwórz je od nowa**, a potem sprawdź wersję:
+
+    ```bash
+    python --version
+    ```
+
+    🍎🐧 Na Macu/Linuxie wpisz `python3 --version`.
   - **GitHub CLI:**
 
     🍎 **Mac** – wpisz w terminalu:
@@ -63,7 +80,15 @@ gh auth login
 
 1. Utwórz folder projektu w wybranej przez siebie lokalizacji.
 2. Otwórz folder projektu w VSC.
-3. Otwórz terminal w VSC (lewy górny róg, 4. od góry ikonka).
+3. Otwórz terminal w VSC skrótem klawiszowym:
+
+   | System | Otwórz / ukryj terminal | Nowy terminal |
+   |---|---|---|
+   | 🪟 Windows / 🐧 Linux | `` Ctrl+` `` | `` Ctrl+Shift+` `` |
+   | 🍎 Mac | `` Ctrl+` `` (klawisz **Control**, nie Cmd) | `` Ctrl+Shift+` `` |
+
+   > 💡 Ten klawisz (`` ` ``) to ten pod `Esc`, nad `Tab`. Jeśli skrót nie działa (np. na klawiaturze z innym układem), użyj `Ctrl+J` (Mac: `Cmd+J`), który otwiera dolny panel, i kliknij zakładkę **Terminal**. Albo z menu: **Terminal → New Terminal**.
+
 4. Wpisz w terminalu VS Code:
 
    🪟 **Windows:**
@@ -77,6 +102,12 @@ gh auth login
    ```bash
    python3 -m venv .venv
    ```
+
+   > ⚠️ Jeśli `.venv` powstał ze starej wersji Pythona (sprawdź: `python --version` po aktywacji środowiska), **usuń folder `.venv`** i utwórz go od nowa nową wersją. Gdy masz zainstalowane kilka wersji, wskaż konkretną (podstaw swoją wersję zamiast `3.13`):
+   >
+   > 🪟 **Windows:** `py -0` pokaże zainstalowane wersje, a potem `py -3.13 -m venv .venv`
+   >
+   > 🍎🐧 **Mac / Linux:** `python3.13 -m venv .venv`
 
 5. Utwórz w folderze projektu plik o nazwie `.gitignore` i wpisz do niego:
 
@@ -226,7 +257,7 @@ Jeśli przy `git pull origin main` lub `git merge` wyskoczy informacja o konflik
 # IV. Co zrobić po ponownym włączeniu komputera (Codzienny start)?
 
 1. Otwórz folder projektu w VS Code.
-2. Otwórz terminal w VS Code.
+2. Otwórz terminal w VS Code: `` Ctrl+` `` (🪟 Windows / 🐧 Linux / 🍎 Mac – na Macu też klawisz **Control**, nie Cmd).
 3. Aktywuj wirtualne środowisko (`.venv`):
 
    🪟 **Windows (PowerShell):**
